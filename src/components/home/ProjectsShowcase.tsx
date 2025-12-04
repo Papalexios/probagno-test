@@ -2,30 +2,34 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import monastirakiImg from '@/assets/projects/monastiraki-1.jpg';
+import hydraImg from '@/assets/projects/hydra-1.jpg';
+import mykonosImg from '@/assets/projects/mykonos-1.jpg';
+import lagonisiImg from '@/assets/projects/lagonisi-1.jpg';
 
 const projects = [
   {
     id: 1,
     title: 'Λαγονήσι',
-    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&auto=format&fit=crop',
+    image: lagonisiImg,
     category: 'Residential',
   },
   {
     id: 2,
     title: 'Ύδρα',
-    image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&auto=format&fit=crop',
+    image: hydraImg,
     category: 'Hotel',
   },
   {
     id: 3,
     title: 'Μύκονος',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop',
+    image: mykonosImg,
     category: 'Villa',
   },
   {
     id: 4,
     title: 'Μοναστηράκι',
-    image: 'https://images.unsplash.com/photo-1600573472591-ee6981cf35b6?w=800&auto=format&fit=crop',
+    image: monastirakiImg,
     category: 'Apartment',
   },
 ];

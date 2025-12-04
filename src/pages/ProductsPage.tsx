@@ -5,6 +5,7 @@ import { Search, SlidersHorizontal, Grid3X3, Grid2X2, X } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { ProductCard } from '@/components/products/ProductCard';
 import { useProductStore } from '@/store/productStore';
+import { productTypes, productMaterials } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -84,7 +85,7 @@ export default function ProductsPage() {
     <div className="space-y-8">
       {/* Categories */}
       <div>
-        <h3 className="font-medium mb-4">Κατηγορίες</h3>
+        <h3 className="font-medium mb-4">ΚΑΤΗΓΟΡΙΕΣ</h3>
         <div className="space-y-3">
           {categories.map((category) => (
             <div key={category.id} className="flex items-center gap-3">
@@ -102,9 +103,41 @@ export default function ProductsPage() {
         </div>
       </div>
 
+      {/* Type */}
+      <div>
+        <h3 className="font-medium mb-4">ΤΥΠΟΣ</h3>
+        <div className="space-y-3">
+          {productTypes.map((type) => (
+            <div key={type.id} className="flex items-center gap-3">
+              <Checkbox id={`type-${type.id}`} />
+              <Label htmlFor={`type-${type.id}`} className="text-sm cursor-pointer flex-1">
+                {type.name}
+              </Label>
+              <span className="text-xs text-muted-foreground">({type.count})</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Material */}
+      <div>
+        <h3 className="font-medium mb-4">ΥΛΙΚΟ</h3>
+        <div className="space-y-3">
+          {productMaterials.map((material) => (
+            <div key={material.id} className="flex items-center gap-3">
+              <Checkbox id={`mat-${material.id}`} />
+              <Label htmlFor={`mat-${material.id}`} className="text-sm cursor-pointer flex-1">
+                {material.name}
+              </Label>
+              <span className="text-xs text-muted-foreground">({material.count})</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Price Range */}
       <div>
-        <h3 className="font-medium mb-4">Τιμή</h3>
+        <h3 className="font-medium mb-4">ΤΙΜΗ</h3>
         <Slider
           value={priceRange}
           onValueChange={setPriceRange}
