@@ -103,7 +103,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
                 transition={{ delay: 0.2 }}
                 className="px-3 py-1.5 bg-primary text-primary-foreground text-[10px] sm:text-xs font-semibold rounded-full shadow-lg"
               >
-                Featured
+                {language === 'el' ? 'Επιλεγμένο' : 'Featured'}
               </motion.span>
             )}
             {product.bestSeller && (
@@ -113,7 +113,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
                 transition={{ delay: 0.3 }}
                 className="px-3 py-1.5 bg-gold text-charcoal text-[10px] sm:text-xs font-semibold rounded-full shadow-lg"
               >
-                Best Seller
+                {language === 'el' ? 'Δημοφιλές' : 'Best Seller'}
               </motion.span>
             )}
             {hasDiscount && (
@@ -123,7 +123,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
                 transition={{ delay: 0.4 }}
                 className="px-3 py-1.5 bg-destructive text-destructive-foreground text-[10px] sm:text-xs font-semibold rounded-full shadow-lg"
               >
-                Sale
+                {language === 'el' ? 'Έκπτωση' : 'Sale'}
               </motion.span>
             )}
           </div>

@@ -426,7 +426,7 @@ export default function ProductsPage() {
                       <Search className="w-8 h-8 text-muted-foreground" />
                     </div>
                     <h3 className="font-display text-xl font-semibold mb-2">
-                      {t('products.no_results')}
+                      {t('products.noResults')}
                     </h3>
                     <p className="text-muted-foreground mb-6">
                       {language === 'el' 
@@ -434,7 +434,7 @@ export default function ProductsPage() {
                         : 'Try changing your filters'}
                     </p>
                     <Button variant="outline" onClick={clearFilters}>
-                      {t('products.clear_filters')}
+                      {t('products.clearFilters')}
                     </Button>
                   </motion.div>
                 ) : (

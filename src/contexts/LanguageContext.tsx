@@ -18,6 +18,7 @@ const translations: Translations = {
   'nav.contact': { el: 'Επικοινωνία', en: 'Contact' },
   'nav.catalog': { el: 'Κατάλογος', en: 'Catalog' },
   'nav.admin': { el: 'Διαχείριση', en: 'Admin' },
+  'nav.menu': { el: 'Μενού', en: 'Menu' },
   
   // Hero Section
   'hero.title': { el: 'Έπιπλα Μπάνιου Υψηλής Αισθητικής', en: 'Premium Bathroom Furniture' },
@@ -45,10 +46,22 @@ const translations: Translations = {
   'products.sort.priceAsc': { el: 'Τιμή: Χαμηλή → Υψηλή', en: 'Price: Low → High' },
   'products.sort.priceDesc': { el: 'Τιμή: Υψηλή → Χαμηλή', en: 'Price: High → Low' },
   'products.sort.nameAsc': { el: 'Όνομα: Α → Ω', en: 'Name: A → Z' },
+  'products.sort.name': { el: 'Όνομα', en: 'Name' },
   'products.noResults': { el: 'Δεν βρέθηκαν προϊόντα', en: 'No products found' },
   'products.clearFilters': { el: 'Καθαρισμός φίλτρων', en: 'Clear filters' },
   'products.applyFilters': { el: 'Εφαρμογή Φίλτρων', en: 'Apply Filters' },
   'products.activeFilters': { el: 'Ενεργά Φίλτρα', en: 'Active Filters' },
+  'products.filter': { el: 'Φίλτρα', en: 'Filters' },
+  'products.clearAll': { el: 'Καθαρισμός όλων', en: 'Clear all' },
+  'products.results': { el: 'προϊόντα', en: 'products' },
+  
+  // Filter labels
+  'filter.categories': { el: 'Κατηγορίες', en: 'Categories' },
+  'filter.color': { el: 'Χρώμα', en: 'Color' },
+  'filter.material': { el: 'Υλικό', en: 'Material' },
+  'filter.price': { el: 'Τιμή', en: 'Price' },
+  'filter.priceRange': { el: 'Εύρος Τιμής', en: 'Price Range' },
+  'filter.quickPrices': { el: 'Γρήγορη Επιλογή', en: 'Quick Select' },
   
   // Product Detail
   'product.addToCart': { el: 'Προσθήκη στο Καλάθι', en: 'Add to Cart' },

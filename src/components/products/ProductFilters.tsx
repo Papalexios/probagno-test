@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/accordion';
 import { cn } from '@/lib/utils';
 import type { Product, Category } from '@/types/product';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Color name to visual representation mapping
 const colorMapping: Record<string, { hex: string; pattern?: string; label: string }> = {
@@ -105,6 +106,8 @@ export function ProductFilters({
   onClearFilters,
   hasFilters,
 }: ProductFiltersProps) {
+  const { language, t } = useLanguage();
+  
   // Extract unique colors from products with counts
   const colorOptions = useMemo(() => {
     const colorCounts = new Map<string, number>();
@@ -191,7 +194,7 @@ export function ProductFilters({
           >
             <div className="flex items-center justify-between">
               <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                Ενεργά Φίλτρα
+                {t('products.activeFilters')}
               </span>
               <Button
                 variant="ghost"
@@ -199,7 +202,7 @@ export function ProductFilters({
                 onClick={onClearFilters}
                 className="h-7 px-2 text-xs text-muted-foreground hover:text-foreground"
               >
-                Καθαρισμός όλων
+                {t('products.clearAll')}
               </Button>
             </div>
             
@@ -301,7 +304,7 @@ export function ProductFilters({
           <AccordionTrigger className="py-4 hover:no-underline">
             <div className="flex items-center gap-3">
               <Box className="w-4 h-4 text-primary" />
-              <span className="font-semibold text-sm">Κατηγορίες</span>
+              <span className="font-semibold text-sm">{t('filter.categories')}</span>
               {activeFilterCounts.categories > 0 && (
                 <Badge variant="default" className="h-5 px-1.5 text-xs">
                   {activeFilterCounts.categories}
@@ -326,7 +329,7 @@ export function ProductFilters({
                     onCheckedChange={() => onCategoryChange(category.slug)}
                     className="rounded-md"
                   />
-                  <span className="text-sm flex-1">{category.name}</span>
+                  <span className="text-sm flex-1">{language === 'el' ? category.name : category.nameEn}</span>
                   <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
                     {category.dynamicCount}
                   </span>
@@ -341,7 +344,7 @@ export function ProductFilters({
           <AccordionTrigger className="py-4 hover:no-underline">
             <div className="flex items-center gap-3">
               <Palette className="w-4 h-4 text-primary" />
-              <span className="font-semibold text-sm">Χρώμα</span>
+              <span className="font-semibold text-sm">{t('filter.color')}</span>
               {activeFilterCounts.colors > 0 && (
                 <Badge variant="default" className="h-5 px-1.5 text-xs">
                   {activeFilterCounts.colors}
@@ -406,7 +409,7 @@ export function ProductFilters({
                         {color.display.label}
                       </span>
                       <span className="text-[10px] text-muted-foreground">
-                        {color.count} προϊόντα
+                        {color.count} {t('products.results')}
                       </span>
                     </div>
                   </button>
@@ -421,7 +424,7 @@ export function ProductFilters({
           <AccordionTrigger className="py-4 hover:no-underline">
             <div className="flex items-center gap-3">
               <Layers className="w-4 h-4 text-primary" />
-              <span className="font-semibold text-sm">Υλικό</span>
+              <span className="font-semibold text-sm">{t('filter.material')}</span>
               {activeFilterCounts.materials > 0 && (
                 <Badge variant="default" className="h-5 px-1.5 text-xs">
                   {activeFilterCounts.materials}
@@ -462,7 +465,7 @@ export function ProductFilters({
           <AccordionTrigger className="py-4 hover:no-underline">
             <div className="flex items-center gap-3">
               <Euro className="w-4 h-4 text-primary" />
-              <span className="font-semibold text-sm">Τιμή</span>
+              <span className="font-semibold text-sm">{t('filter.price')}</span>
               {activeFilterCounts.price > 0 && (
                 <Badge variant="default" className="h-5 px-1.5 text-xs">
                   1
@@ -482,14 +485,14 @@ export function ProductFilters({
               />
               <div className="flex items-center justify-between gap-4">
                 <div className="flex-1">
-                  <Label className="text-xs text-muted-foreground mb-1 block">Από</Label>
+                  <Label className="text-xs text-muted-foreground mb-1 block">{language === 'el' ? 'Από' : 'From'}</Label>
                   <div className="px-3 py-2 rounded-lg bg-muted font-medium text-sm">
                     €{priceRange[0].toLocaleString()}
                   </div>
                 </div>
                 <div className="text-muted-foreground pt-5">—</div>
                 <div className="flex-1">
-                  <Label className="text-xs text-muted-foreground mb-1 block">Έως</Label>
+                  <Label className="text-xs text-muted-foreground mb-1 block">{language === 'el' ? 'Έως' : 'To'}</Label>
                   <div className="px-3 py-2 rounded-lg bg-muted font-medium text-sm">
                     €{priceRange[1].toLocaleString()}
                   </div>
@@ -506,7 +509,7 @@ export function ProductFilters({
                     className="h-7 text-xs rounded-full"
                     onClick={() => onPriceChange([0, price])}
                   >
-                    Έως €{price}
+                    {language === 'el' ? `Έως €${price}` : `Up to €${price}`}
                   </Button>
                 ))}
               </div>
@@ -529,7 +532,7 @@ export function ProductFilters({
               className="w-full rounded-xl h-11 mt-4"
             >
               <X className="w-4 h-4 mr-2" />
-              Καθαρισμός Όλων των Φίλτρων
+              {language === 'el' ? 'Καθαρισμός Όλων των Φίλτρων' : 'Clear All Filters'}
             </Button>
           </motion.div>
         )}
